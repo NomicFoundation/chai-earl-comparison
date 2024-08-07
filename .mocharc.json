@@ -1,0 +1,4 @@
+{
+  "import": "tsx/esm",
+  "extension": [".ts"]
+}
