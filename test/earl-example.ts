@@ -1,5 +1,14 @@
-// We just import earl, no need to import plugins. If has
-// enough features to be useful withoyt them.
+/**
+ * In this example we use Earl to test the code in `src/index.ts`.
+ *
+ * Reading this file should give a rough idea of how to use Earl, but it's not
+ * meant to be a full explanation of the library.
+ *
+ * Please refer to the documentation for more information: https://earl.fun
+ *
+ * We just import earl, no need to import plugins. If has enough features to be
+ * useful without them.
+ **/
 import { expect } from "earl";
 
 import { BlogUserService, Role } from "../src/index.js";
@@ -53,7 +62,7 @@ describe("earl: BlogUserService", () => {
     it("Should add a user", async () => {
       const userService = new BlogUserService();
       const user = userService.createUser("John Doe");
-      await userService.addUser(user.id, user);
+      await userService.addUser(user);
 
       expect(await userService.getUser(user.id)).toEqual(user);
     });
@@ -61,9 +70,9 @@ describe("earl: BlogUserService", () => {
     it("Should throw an error if the user already exists", async () => {
       const userService = new BlogUserService();
       const user = userService.createUser("John Doe");
-      await userService.addUser(user.id, user);
+      await userService.addUser(user);
 
-      await expect(userService.addUser(user.id, user)).toBeRejectedWith(
+      await expect(userService.addUser(user)).toBeRejectedWith(
         "User already exists."
       );
     });
@@ -71,7 +80,7 @@ describe("earl: BlogUserService", () => {
     it("fails at compile time if we forget an await (EXPECTED FAILURE)", async () => {
       const userService = new BlogUserService();
       const user = userService.createUser("John Doe");
-      await userService.addUser(user.id, user);
+      await userService.addUser(user);
 
       const user2 = userService.getUser(user.id);
       // @ts-expect-error This comment asserts that the next line results in a compilation error, remove it to see the result.
@@ -83,7 +92,7 @@ describe("earl: BlogUserService", () => {
     it("Fails because the error message is not the same as the one we expect (EXPECTED FAILURE)", async () => {
       const userService = new BlogUserService();
       const user = userService.createUser("John Doe");
-      await userService.addUser(user.id, user);
+      await userService.addUser(user);
 
       await expect(userService.getUser(user.id)).toBeRejectedWith(
         "This is not the error that we throw."
