@@ -15,6 +15,12 @@ The are two sets of tests of the example code. One of them uses Chai, and the ot
 
 You can find the tests in `test/chai-example.ts` and `test/earl-example.ts`.
 
+## Required environment
+
+Please make sure you have Node.js version `22.0.0` or higher installed. You can validate your version with `node --version`.
+
+You can also use the included devcontainer to run this project.
+
 ## Installation
 
 ```bash
