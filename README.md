@@ -19,7 +19,7 @@ You can find the tests in `test/chai-example.ts` and `test/earl-example.ts`.
 
 Please make sure you have Node.js version `22.0.0` or higher installed. You can validate your version with `node --version`.
 
-You can also use the included devcontainer to run this project.
+You can also use the included devcontainer to run this project. The simplest way to do this it to use Github Codespaces, by clicking on the green "Code" button on the top of this page, and then clicking on "Codespaces", and then "Create codespace on main". This will open a new tab in your browser, with a vscode instance that has the project cloned and ready to go.
 
 ## Installation
 
